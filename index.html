@@ -426,6 +426,51 @@ p:last-child{ margin-bottom:0; }
 @media (prefers-reduced-motion: reduce){ .abstract{ animation:none; } }
 .abstract p{ color:var(--ink-soft); font-size:.97rem; max-width:64ch; }
 
+/* An entry with no abstract yet — same rhythm, nothing to click. */
+.entry.static > summary{ cursor:default; grid-template-columns:minmax(0,1fr); }
+.entry.static:hover .entry-title{ color:inherit; }
+
+/* Structured-abstract labels (Purpose / Design / Findings …) */
+.abstract h4{
+  font-family:var(--mono);
+  font-size:.63rem; letter-spacing:.15em; text-transform:uppercase;
+  font-weight:500; color:var(--clay);
+  margin:1.5rem 0 .4rem;
+}
+.abstract h4:first-child{ margin-top:0; }
+
+.keywords{
+  margin-top:1.3rem;
+  padding-top:1rem;
+  border-top:1px solid var(--rule-soft);
+  font-family:var(--mono);
+  font-size:.67rem; letter-spacing:.045em; line-height:1.85;
+  color:var(--ink-faint);
+  max-width:62ch;
+}
+.keywords b{
+  display:block;
+  color:var(--clay); font-weight:500;
+  letter-spacing:.15em; text-transform:uppercase;
+  font-size:.6rem;
+  margin-bottom:.2rem;
+}
+
+/* The forthcoming paper leads the Publications band and opens like a
+   research entry; the older engineering paper stays a compact citation. */
+.band .entry{ border-bottom-color:rgba(243,239,231,.15); }
+.band .entries{ border-top-color:rgba(243,239,231,.22); }
+.band .entry-title{ color:var(--paper); }
+.band .entry:hover .entry-title,
+.band .entry[open] .entry-title{ color:#C9A87C; }
+.band .entry-by{ color:rgba(243,239,231,.5); }
+.band .plus{ color:#C9A87C; }
+.band .abstract p{ color:rgba(243,239,231,.66); }
+.band .abstract h4{ color:#C9A87C; }
+.band .keywords{ color:rgba(243,239,231,.45); border-top-color:rgba(243,239,231,.15); }
+.band .keywords b{ color:#C9A87C; }
+.pub .entry-title{ font-style:italic; font-variation-settings:"SOFT" 60,"WONK" 1; }
+
 /* ── Dark band (publications + teaching) ──────────────────── */
 
 .band{
@@ -451,6 +496,17 @@ p:last-child{ margin-bottom:0; }
   font-size:1.28rem; line-height:1.35; letter-spacing:-.015em;
   display:block; margin-bottom:.65rem;
   color:var(--paper);
+}
+.cite + .cite{ margin-top:2.8rem; }
+.pubstatus{
+  display:inline-block;
+  font-family:var(--mono);
+  font-size:.63rem; letter-spacing:.16em; text-transform:uppercase;
+  color:#C9A87C;
+  border:1px solid rgba(201,168,124,.4);
+  border-radius:999px;
+  padding:.24rem .62rem;
+  margin-bottom:1rem;
 }
 .cite .meta{
   font-family:var(--mono); font-size:.72rem; letter-spacing:.06em;
@@ -778,26 +834,28 @@ p:last-child{ margin-bottom:0; }
         <details class="entry">
           <summary>
             <div>
-              <h3 class="entry-title">Estimating the Technology of Youth Cognitive and Noncognitive Skill Formation</h3>
+              <h3 class="entry-title">Estimating the Technology of Youth Cognitive and Noncognitive Skill Production</h3>
               <p class="entry-by">Saba Ranjbar</p>
             </div>
             <span class="plus" aria-hidden="true"></span>
           </summary>
           <div class="abstract">
-            <p>I estimate a dynamic factor model of the evolution of cognitive and noncognitive skills and the role of the family environment in moulding these skills in the teenage years. The results show that parental investments — both in terms of time and money — improved noncognitive skills but not cognitive skills for the 1988 cohort. The effect on cognitive skills has increased in the 2009 cohort.</p>
+            <p>This paper estimates models of the evolution of cognitive and noncognitive skills and studies the role of family environment in shaping these skills in teenage years. I estimate a dynamic factor model to solve the issue of endogeneity of inputs and multiplicity of inputs relative to instruments. The model is estimated once for the 1988 sample between the ages of 14 to 16, and a second time, for high school graduates only, in both 1988 and 2009 cohorts between the ages of 14 and 18. This paper differs from others in the literature by looking at the evolution of skill production technology in teenagers and young adults over a span of 20 years instead of estimating the production function only for one cohort and in early childhood. The results show that parental investments (both in terms of time and money) improved noncognitive skills but not cognitive skills for the 1988 cohort. The effect on cognitive skills has increased in the later cohort.</p>
+            <p class="keywords"><b>Keywords</b>Child Development · Human Capital · Cognitive Skills · Noncognitive Skills · Parental Investments</p>
           </div>
         </details>
 
         <details class="entry">
           <summary>
             <div>
-              <h3 class="entry-title">Family Income and Schooling Relationship in the US and its Evolution</h3>
+              <h3 class="entry-title">Family Income–Schooling Relationship in the US and its Evolution</h3>
               <p class="entry-by">Saba Ranjbar</p>
             </div>
             <span class="plus" aria-hidden="true"></span>
           </summary>
           <div class="abstract">
-            <p>I estimate a dynamic model of schooling on two longitudinal datasets and find that the effect of relative family income on education has decreased between the early 1990s and the early 2010s. After considering a cognitive ability measure, family background variables and unobserved heterogeneity, the marginal effects of relative income on grade progression in college have become smaller for the younger cohort, and the differences between the two cohorts are not statistically significant. Meanwhile, in the same period, the effect of unobserved heterogeneity in explaining the variation in educational attainment has increased significantly.</p>
+            <p>I estimate a dynamic model of schooling on two longitudinal datasets (the National Education Longitudinal Study of 1988 and the High School Longitudinal Study of 2009) and find that the effect of relative family income on education has decreased between the early 1990s and the early 2010s. After taking into account a cognitive ability measure (a math test score), family background variables and unobserved heterogeneity, the marginal effects of relative income on grade progression in college have become smaller for the younger cohort. After substituting the math test score quartiles as measures of cognitive ability by an estimated cognitive factor, the effect of relative family income in the two cohorts becomes smaller and the differences between the two cohorts are not statistically significant. Meanwhile, in the same period, the effect of unobserved heterogeneity in explaining the variation in educational attainment has increased significantly.</p>
+            <p class="keywords"><b>Keywords</b>Inequality · Education · Family Income · Cognitive Ability · Unobserved Heterogeneity</p>
           </div>
         </details>
 
@@ -810,33 +868,35 @@ p:last-child{ margin-bottom:0; }
             <span class="plus" aria-hidden="true"></span>
           </summary>
           <div class="abstract">
-            <p>I study the effect of participation in after-school activities and working while in school on high school performance in the US. Since the decision to work or participate in extracurricular activities is endogenous, several methods were used in this paper to overcome this issue. The results show that working has a detrimental impact on individuals' GPAs. Contrary to the effect of working, participating in extracurricular activities significantly improves academic performance.</p>
+            <p>Students' participation in the labor force is the norm for a large proportion of high school students in many countries including the US. Data from the National Education Longitudinal Study of 1988 (NELS:88) show that in 1990, around 56 percent of 10th grade students in the US were working during school days, while this number for the same cohort had increased to almost 70 percent in 1992 when most of the students were in 12th grade. Around 20 years later, data from the High School Longitudinal Study of 2009 (HSLS:09) show that although the number of students working while in school has decreased, the proportion is still high — between 46 and 50 percent of students in 9th and 12th grades work for pay during school days.</p>
+            <p>Using data from these two American surveys, this paper examines the effect of school year employment and participation in extracurricular activities on academic performance, specifically the grade point average. Since the decision to work or participate in extracurricular activities is endogenous, several methods were used in this paper to overcome this issue. The results show that in 1990, working while in school had no significant impact on students' GPAs, but in 1992, when most students in the cohort were in 12th grade, working decreased their GPAs. In 2009, working had a negative impact on GPAs among grade 9 students. Working in 2012, when most students were in 12th grade, also had a negative impact on their GPAs. Contrary to the effect of working, participating in extracurricular activities significantly improves academic performance.</p>
+            <p class="keywords"><b>Keywords</b>Student Employment · Extracurricular Activities · After-School Activities · Educational Performance · GPA</p>
           </div>
         </details>
 
         <details class="entry">
           <summary>
             <div>
-              <h3 class="entry-title">Immigrant–Native Earnings Gaps in Canada: Between- and Within-Occupation Components</h3>
-              <p class="entry-by">Husame Doganay · Tony Fang · Saba Ranjbar · Arthur Sweetman<span class="status">In progress</span></p>
+              <h3 class="entry-title">Immigrant Earnings and Labour-Market Positioning in a Transforming Digital Labour Market: Evidence from Canada, 1971–2021</h3>
+              <p class="entry-by">Husame Doganay · Tony Fang · Xingfei Liu · Saba Ranjbar · Arthur Sweetman<span class="status">Final revision</span></p>
+              <p class="entry-by" style="margin-top:.55rem;font-family:var(--display);font-style:italic;font-size:.98rem;letter-spacing:0;color:var(--clay-deep)">Career Development International</p>
             </div>
             <span class="plus" aria-hidden="true"></span>
           </summary>
           <div class="abstract">
-            <p>This paper presents a non-parametric analysis of immigrant earnings assimilation in Canada using five decades of Census data (1971–2021). We track immigrant–native income gaps across the mean, median, p25, and p75 by cohort, gender, and age at arrival, showing strong sensitivity to sample selection. Inclusive samples reveal persistent entry gaps, limited convergence, and widening within-group inequality, especially for women and older arrivals.</p>
-          </div>
-        </details>
+            <h4>Purpose</h4>
+            <p>This paper examines immigrant earnings trajectories and labour-market positioning across industries and employment arrangements in six Canadian provinces, and how industry patterns relate to digital intensity, telework feasibility, and productivity-relevant allocation.</p>
 
-        <details class="entry">
-          <summary>
-            <div>
-              <h3 class="entry-title">Immigrant Earnings Assimilation in Canada, 1971–2021: Cohort Dynamics, Sample Selection, and the Median–Mean Divide</h3>
-              <p class="entry-by">Husame Doganay · Tony Fang · Saba Ranjbar · Arthur Sweetman<span class="status">In progress</span></p>
-            </div>
-            <span class="plus" aria-hidden="true"></span>
-          </summary>
-          <div class="abstract">
-            <p>Using 2006–2021 LFS data, we estimate immigrant–native earnings gaps by combining native-based occupational benchmarks with SUR models. Immigrants earn less than comparable natives due to both occupational sorting and within-occupation differences, with only partial convergence over time. Persistent gaps — especially for women and non-European immigrants — point to unobserved productivity factors and the need for policies that reduce occupational mismatch.</p>
+            <h4>Design / Methodology / Approach</h4>
+            <p>Canadian Census microdata, 1971–2021, compare immigrant and native-born earnings across ten arrival cohorts by gender and age at arrival. For two recent cohorts, an earnings-based positioning measure combines industry mean annual earnings with full-time or part-time status; multinomial-logit average marginal effects are estimated. The study also maps 2021 industry employment shares to external digital-intensity and telework-feasibility classifications. Individual productivity, artificial-intelligence (AI) adoption, ICT use, and remote-work uptake are not observed.</p>
+
+            <h4>Findings</h4>
+            <p>Entry earnings gaps and incomplete cohort convergence persist, especially among women and recent cohorts. Across the two positioning cohorts, immigrants are less likely than comparable native-born workers to hold full-time jobs in higher-earnings industries; gaps vary by source region and do not uniformly narrow. Education is associated with better positioning but does not eliminate gaps. Immigrant employment is more concentrated in many digitally intensive categories but less concentrated in several higher-earnings, high-telework-feasibility industries; digital intensity is not systematically related to immigrant employment shares.</p>
+
+            <h4>Originality / Value</h4>
+            <p>The paper combines five decades of earnings evidence across ten cohorts with a two-cohort positioning measure and descriptive digital and telework mapping. It complements individual-level careers research by identifying structural differences in opportunity access with possible, unmeasured productivity implications.</p>
+
+            <p class="keywords"><b>Keywords</b>Immigrant Earnings Assimilation · Labour-Market Allocation · Industry Positioning · Remote Work and Digital Intensity · Labour-Market Inequality</p>
           </div>
         </details>
 
@@ -879,6 +939,26 @@ p:last-child{ margin-bottom:0; }
       <div class="marker"><span class="num">04</span><span>Published</span></div>
       <div class="rise">
         <h2 class="h">Peer-reviewed</h2>
+
+        <div class="entries" style="margin-bottom:3rem">
+          <details class="entry pub">
+            <summary>
+              <div>
+                <span class="pubstatus">Forthcoming</span>
+                <h3 class="entry-title">Occupational Upgrading and Within-Occupation Wage Gaps: Immigrant Earnings Integration in Canada, 2006–2021</h3>
+                <p class="entry-by">Husame Doganay · Tony Fang · Xingfei Liu · Saba Ranjbar · Arthur Sweetman</p>
+                <p class="entry-by" style="margin-top:.5rem">Journal of Productivity Analysis · Accepted for publication</p>
+              </div>
+              <span class="plus" aria-hidden="true"></span>
+            </summary>
+            <div class="abstract">
+              <p>This paper studies immigrant earnings integration in Canada using Labour Force Survey data from 2006 to 2021 and an empirical framework that separately models actual wages, counterfactual wages predicted from age- and gender-specific native wage profiles within detailed occupations, and the within-occupation wage gap between actual and predicted wages. This separation allows us to distinguish wage growth driven by occupational upgrading from within-occupation wage convergence.</p>
+              <p>We find that years since migration are associated with substantial wage growth, led by occupational upgrading at arrival and increasingly by within-occupation convergence at longer durations. While within-occupation wage gaps do narrow modestly over time, convergence along this margin remains slow and incomplete. This pattern holds by gender, though precision varies by region of origin. The results indicate persistent gaps reflect both limited access to high-paying occupations and differential pay within jobs, with relative importance shifting over time. This highlights occupational placement and within-occupation pay as central, evolving margins along which immigrant earnings integration unfolds in Canada.</p>
+              <p class="keywords"><b>Keywords</b>Immigration · Economic Integration · Occupational Placement · Wage Gaps · Labor Market Integration<br><br><b>JEL Classification</b>J15 · J24 · J31</p>
+            </div>
+          </details>
+        </div>
+
         <div class="cite">
           <span class="journal">A Decentralized Energy Management Framework for Energy Hubs in Dynamic Pricing Markets</span>
           <p class="meta">
